@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Show</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+
+    <h1>Edit {{show_info['name']}}</h1>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+    <form action="/shows/update/{{show_info['id']}}" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{show_info['name']}}"><br>
+        <label for="network">Network:</label>
+        <input type="text" name="network" id="network" value="{{show_info['network']}}"><br>
+        <label for="release_date">Release Date:</label>
+        <input type="date" name="release_date" id="release_date" value="{{show_info['release_date'].strftime('%Y-%m-%d')}}"><br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" cols="30" rows="10">{{show_info['description']}}</textarea><br>
+        
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

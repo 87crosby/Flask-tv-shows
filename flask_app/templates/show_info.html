@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Info</title>
+</head>
+<body>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+    <h1>{{show_info['name']}}</h1>
+    <p>Network:      {{show_info['network']}}</p><br>
+    <p>Release Date:         {{show_info['release_date'].strftime('%Y-%m-%d')}}</p><br>
+    <p>Description:       {{show_info['description']}}</p><br>
+    <p>Posted By:      {{show_info['first_name']}} {{show_info['last_name']}}</p>
+</body>
+</html>
